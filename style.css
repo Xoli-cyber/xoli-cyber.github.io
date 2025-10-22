@@ -36,166 +36,115 @@ html {
   scroll-behavior: smooth;
 }
 
-/* Ensure consistent layout across devices */
+/* Reset and layout */
 html, body {
   height: 100%;
   margin: 0;
+  display: flex;
   flex-direction: column;
-}
-
-/* Main content grows to fill available space */
-main {
-  flex: 1;
-  padding: 20px;
-}
-
-/* Footer stays at bottom */
-footer {
-  background-color: #8B0000; /* Crimson */
   color: black;
-  text-align: center;
-  padding: 20px 10px;
-  width: 100%;
-  margin-top: auto;
-  font-size: 14px;
-  border-top: 2px solid #600000;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
-/* ===== HEADER & NAVIGATION ===== */
+/* Background image (full site) */
+html {
+  background: url("images/untitled.png") no-repeat center center fixed;
+  background-size: cover;
+}
+
+/* Header (overrides/merges with existing header rules) */
 header {
-  background: var(--header-footer-bg);
-  padding: var(--spacing-sm) var(--spacing-lg);
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-  box-shadow: var(--shadow);
-  backdrop-filter: blur(10px);
-}
-
-.navbar {
+  background: rgba(255, 255, 255, 0.85);
   display: flex;
+  align-items: center;
   justify-content: space-between;
-  align-items: center;
-  max-width: 1200px;
-  margin: 0 auto;
-  position: relative;
+  padding: 10px 20px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
 
-/* Logo styling (keeps earlier additions) */
-.logo {
-  display: flex;
-  align-items: center;
-  gap: var(--spacing-sm);
-  text-decoration: none;
-}
-
+/* ensure logo image uses .logo img or header img.logo if present */
+header img.logo,
 .logo img {
   height: 60px;
   width: auto;
-  display: block;
 }
 
-.logo h1 {
-  font-size: 1.8rem;
-  color: var(--text-color);
+/* Nav basic styles (will coexist with existing nav rules) */
+nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+nav ul li {
+  margin: 0 10px;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: black;
   font-weight: bold;
 }
 
-/* Nav selectors cover both nav ul and direct .navbar > ul usage */
-nav ul,
-.navbar > ul {
-  list-style: none;
-  display: flex;
-  gap: var(--spacing-md);
-  align-items: center;
+nav ul li a:hover {
+  text-decoration: underline;
 }
 
-nav ul li a,
-.navbar > ul li a {
-  text-decoration: none;
-  color: var(--text-color);
-  font-weight: 600;
-  padding: var(--spacing-xs) var(--spacing-sm);
-  border-radius: var(--border-radius-sm);
-  transition: var(--transition);
+/* Hero section with faded overlay */
+.hero {
   position: relative;
+  text-align: center;
+  padding: 80px 20px;
+  color: black;
+  max-width: 1000px;
+  margin: 40px auto;
+  border-radius: 10px;
+  overflow: hidden;
 }
 
-nav ul li a:hover,
-nav ul li a:focus,
-.navbar > ul li a:hover,
-.navbar > ul li a:focus {
-  color: var(--primary-color);
-  background-color: rgba(220, 20, 60, 0.1);
-  outline: none;
-}
-
-nav ul li a.active,
-.navbar > ul li a.active {
-  color: var(--primary-color);
-}
-
-nav ul li a.active::after,
-.navbar > ul li a.active::after {
-  content: '';
+.hero::before {
+  content: "";
   position: absolute;
-  bottom: -2px;
-  left: var(--spacing-sm);
-  right: var(--spacing-sm);
-  height: 2px;
-  background: var(--primary-color);
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.75); /* white transparent overlay */
+  backdrop-filter: brightness(0.9);
+  z-index: 0;
 }
 
-/* Mobile hamburger/button positioning & accessibility enhancements */
-.menu-toggle {
-  display: none; /* shown via media query already */
-  background: transparent;
-  border: 2px solid transparent;
-  font-size: 1.6rem;
+.hero h1, .hero p, .hero a, .hero button {
+  position: relative;
+  z-index: 1; /* Keep text above overlay */
+}
+
+/* Buttons */
+button, a.button {
+  background: crimson;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  text-decoration: none;
+  font-weight: bold;
   cursor: pointer;
-  color: var(--text-color);
-  padding: 6px 10px;
-  border-radius: var(--border-radius-sm);
-  transition: var(--transition);
-  align-self: center;
 }
 
-/* visible focus ring for keyboard users */
-.menu-toggle:focus {
-  outline: none;
-  box-shadow: 0 0 0 4px rgba(220, 20, 60, 0.12);
-  border-color: rgba(220, 20, 60, 0.2);
+button:hover, a.button:hover {
+  background: darkred;
 }
 
-/* small visual change when menu is open */
-.menu-toggle[aria-expanded="true"] {
-  background-color: rgba(220, 20, 60, 0.06);
-}
-
-/* ensure primary-nav behaves correctly when JS toggles .show */
-#primary-nav {
-  display: flex;
-  gap: var(--spacing-md);
-  align-items: center;
-}
-
-/* override for mobile: hide by default, show when .show added (media queries already included) */
-@media (max-width: 768px) {
-  #primary-nav {
-    display: none;
-    flex-direction: column;
-    gap: var(--spacing-sm);
-  }
-
-  #primary-nav.show {
-    display: flex;
-  }
-
-  /* position the hamburger to the right of the navbar */
-  .menu-toggle {
-    display: block;
-    margin-left: auto;
-  }
+/* Footer (merged with existing footer rules) */
+footer {
+  background: rgba(255, 255, 255, 0.9);
+  text-align: center;
+  padding: 15px;
+  font-size: 14px;
+  border-top: 1px solid rgba(0,0,0,0.2);
+  margin-top: auto;
 }
 
 /* ===== MAIN CONTENT ===== */
@@ -439,85 +388,31 @@ main {
 
 /* ===== FOOTER ===== */
 footer {
-  background-color: #8B0000; /* Crimson */
-  color: black;
+  background: rgba(255, 255, 255, 0.9);
   text-align: center;
-  padding: 20px 10px;
-  width: 100%;
-  margin-top: auto;
+  padding: 15px;
   font-size: 14px;
-  border-top: 2px solid #600000;
+  border-top: 1px solid rgba(0,0,0,0.2);
+  margin-top: auto;
 }
 
 /* ===== RESPONSIVE DESIGN ===== */
 @media (max-width: 768px) {
-  .navbar {
-    flex-direction: row;
-    gap: var(--spacing-md);
-  }
-
-  /* hide regular horizontal menu on small screens */
-  nav ul,
-  .navbar > ul {
-    display: none;
-  }
-
-  /* show menu-toggle button */
-  .menu-toggle {
-    display: block;
-  }
-
-  /* when menu is toggled, show vertically */
-  nav ul.show,
-  .navbar > ul.show {
-    display: flex;
-    flex-direction: column;
-    position: absolute;
-    top: 100%;
-    left: 0;
-    right: 0;
-    background: var(--header-footer-bg);
-    padding: var(--spacing-md);
-    gap: var(--spacing-sm);
-    box-shadow: var(--shadow);
-    border-top: 4px solid var(--primary-color);
-    z-index: 1100;
-  }
-
-  header img {
-    width: 60px;
-    height: auto;
-  }
-
-  nav ul {
+  header {
     flex-direction: column;
     text-align: center;
   }
 
-  footer {
-    font-size: 13px;
-    padding: 15px;
-  }
-
-  .form-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .form-container {
-    padding: var(--spacing-md);
-  }
-
-  .form-container h1 {
-    font-size: 2rem;
-  }
-
-  .form-actions {
+  nav ul {
     flex-direction: column;
   }
 
-  .btn-primary,
-  .btn-secondary {
-    width: 100%;
+  nav ul li {
+    margin: 5px 0;
+  }
+
+  .hero {
+    padding: 60px 15px;
   }
 }
 
