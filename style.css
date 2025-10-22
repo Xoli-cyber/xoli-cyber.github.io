@@ -36,25 +36,31 @@ html {
   scroll-behavior: smooth;
 }
 
-body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  color: var(--text-color);
-  line-height: 1.6;
-  background: url("images/untitled.png") no-repeat center center fixed;
-  background-size: cover;
-  position: relative;
-  min-height: 100vh;
+/* Ensure consistent layout across devices */
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
 }
 
-body::before {
-  content: "";
-  position: fixed;
-  top: 0;
-  left: 0;
+/* Main content grows to fill available space */
+main {
+  flex: 1;
+  padding: 20px;
+}
+
+/* Footer stays at bottom */
+footer {
+  background-color: #8B0000; /* Crimson */
+  color: black;
+  text-align: center;
+  padding: 20px 10px;
   width: 100%;
-  height: 100%;
-  background-color: var(--background-overlay);
-  z-index: -1;
+  margin-top: auto;
+  font-size: 14px;
+  border-top: 2px solid #600000;
 }
 
 /* ===== HEADER & NAVIGATION ===== */
@@ -142,23 +148,56 @@ nav ul li a.active::after,
   background: var(--primary-color);
 }
 
-/* Mobile hamburger toggle (hidden on desktop) */
+/* Mobile hamburger/button positioning & accessibility enhancements */
 .menu-toggle {
-  display: none;
+  display: none; /* shown via media query already */
   background: transparent;
-  border: none;
+  border: 2px solid transparent;
   font-size: 1.6rem;
   cursor: pointer;
   color: var(--text-color);
-  padding: 6px 8px;
+  padding: 6px 10px;
   border-radius: var(--border-radius-sm);
   transition: var(--transition);
+  align-self: center;
 }
 
-/* show state for mobile menu */
-.navbar ul.show,
-nav ul.show {
-  display: flex; /* display controlled on mobile media query */
+/* visible focus ring for keyboard users */
+.menu-toggle:focus {
+  outline: none;
+  box-shadow: 0 0 0 4px rgba(220, 20, 60, 0.12);
+  border-color: rgba(220, 20, 60, 0.2);
+}
+
+/* small visual change when menu is open */
+.menu-toggle[aria-expanded="true"] {
+  background-color: rgba(220, 20, 60, 0.06);
+}
+
+/* ensure primary-nav behaves correctly when JS toggles .show */
+#primary-nav {
+  display: flex;
+  gap: var(--spacing-md);
+  align-items: center;
+}
+
+/* override for mobile: hide by default, show when .show added (media queries already included) */
+@media (max-width: 768px) {
+  #primary-nav {
+    display: none;
+    flex-direction: column;
+    gap: var(--spacing-sm);
+  }
+
+  #primary-nav.show {
+    display: flex;
+  }
+
+  /* position the hamburger to the right of the navbar */
+  .menu-toggle {
+    display: block;
+    margin-left: auto;
+  }
 }
 
 /* ===== MAIN CONTENT ===== */
@@ -402,12 +441,14 @@ main {
 
 /* ===== FOOTER ===== */
 footer {
-  background: var(--header-footer-bg);
-  color: var(--text-color);
+  background-color: #8B0000; /* Crimson */
+  color: black;
   text-align: center;
-  padding: var(--spacing-md);
-  margin-top: var(--spacing-xl);
-  box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+  padding: 20px 10px;
+  width: 100%;
+  margin-top: auto;
+  font-size: 14px;
+  border-top: 2px solid #600000;
 }
 
 /* ===== RESPONSIVE DESIGN ===== */
@@ -443,6 +484,21 @@ footer {
     box-shadow: var(--shadow);
     border-top: 4px solid var(--primary-color);
     z-index: 1100;
+  }
+
+  header img {
+    width: 60px;
+    height: auto;
+  }
+
+  nav ul {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  footer {
+    font-size: 13px;
+    padding: 15px;
   }
 
   .form-grid {
