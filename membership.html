@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Union Membership Application - NDASWU</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <div class="navbar">
+      <div class="logo">
+        <img src="images/logo-img.jpg" alt="NDASWU Union Logo" style="width:60px; height:auto;">
+        <h1>NDASWU</h1>
+      </div>
+      <nav>
+        <ul>
+          <li><a href="index.html" class="active">Home</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="news.html">News</a></li>
+          <li><a href="campaigns.html">Campaigns</a></li>
+          <li><a href="resources.html">Resources</a></li>
+          <li><a href="events.html">Events</a></li>
+          <li><a href="membership.html">Join</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="form-container">
+      <h1>Union Membership Application</h1>
+      <p class="form-intro">Join NDASWU today and become part of our growing community of professionals.</p>
+      
+      <form id="membershipForm" action="save_member.php" method="POST" class="membership-form">
+        <!-- SECTION A: Personal Details -->
+        <fieldset class="form-section">
+          <legend>SECTION A: Personal Details</legend>
+          <div class="form-grid">
+            <div class="form-group">
+              <label for="first_name">First Name *</label>
+              <input type="text" id="first_name" name="first_name" required>
+            </div>
+            <div class="form-group">
+              <label for="surname">Surname *</label>
+              <input type="text" id="surname" name="surname" required>
+            </div>
+            <div class="form-group">
+              <label for="id_number">ID Number *</label>
+              <input type="text" id="id_number" name="id_number" pattern="[0-9]{13}" title="13-digit South African ID number" required>
+            </div>
+            <div class="form-group">
+              <label for="gender">Gender</label>
+              <select id="gender" name="gender">
+                <option value="">Select Gender</option>
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+                <option value="Other">Other</option>
+                <option value="Prefer not to say">Prefer not to say</option>
+              </select>
+            </div>
+            <div class="form-group full-width">
+              <label for="address">Physical/Postal Address *</label>
+              <textarea id="address" name="address" rows="3" required></textarea>
+            </div>
+            <div class="form-group">
+              <label for="email">Email Address *</label>
+              <input type="email" id="email" name="email" required>
+            </div>
+            <div class="form-group">
+              <label for="phone">Tel/Cell Number *</label>
+              <input type="tel" id="phone" name="phone" pattern="[0-9+]{10,}" required>
+            </div>
+          </div>
+          <div class="fee-notice">
+            <p><strong>Membership Fee: R100</strong></p>
+          </div>
+        </fieldset>
+
+        <!-- SECTION B: Employment Details -->
+        <fieldset class="form-section">
+          <legend>SECTION B: Employment Details</legend>
+          <div class="form-grid">
+            <div class="form-group full-width">
+              <label for="employer">Employer/Institution Name *</label>
+              <input type="text" id="employer" name="employer" required>
+            </div>
+            <div class="form-group">
+              <label for="job_title">Job Title/Position</label>
+              <input type="text" id="job_title" name="job_title">
+            </div>
+            <div class="form-group">
+              <label for="salary_number">Salary/Persal Number</label>
+              <input type="text" id="salary_number" name="salary_number">
+            </div>
+            <div class="form-group full-width">
+              <label for="work_address">Work Address</label>
+              <textarea id="work_address" name="work_address" rows="3"></textarea>
+            </div>
+            <div class="form-group">
+              <label for="employment_type">Employment Type</label>
+              <select id="employment_type" name="employment_type">
+                <option value="">Select Type</option>
+                <option value="Full-time">Full-time</option>
+                <option value="Part-time">Part-time</option>
+                <option value="Contract">Contract</option>
+                <option value="Intern">Intern</option>
+                <option value="Temporary">Temporary</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="department">Department/Unit</label>
+              <input type="text" id="department" name="department">
+            </div>
+            <div class="form-group">
+              <label for="work_phone">Work Contact Number</label>
+              <input type="tel" id="work_phone" name="work_phone">
+            </div>
+            <div class="form-group">
+              <label for="region">Region</label>
+              <input type="text" id="region" name="region">
+            </div>
+          </div>
+        </fieldset>
+
+        <!-- SECTION C: Union Participation -->
+        <fieldset class="form-section">
+          <legend>SECTION C: Union Participation</legend>
+          <div class="form-group full-width">
+            <label for="skills">Skills you can contribute to the union:</label>
+            <textarea id="skills" name="skills" rows="4" placeholder="e.g., Leadership, Public speaking, Computer skills, Organizing, etc."></textarea>
+          </div>
+        </fieldset>
+
+        <!-- SECTION D: Payment & Consent -->
+        <fieldset class="form-section">
+          <legend>SECTION D: Payment & Consent</legend>
+          
+          <div class="form-group">
+            <label>Membership Fee Option *</label>
+            <div class="radio-group">
+              <label class="radio-option">
+                <input type="radio" name="payment_option" value="Monthly Debit Order" required>
+                <span class="radio-custom"></span>
+                Monthly Debit Order
+              </label>
+              <label class="radio-option">
+                <input type="radio" name="payment_option" value="Employer Deduction">
+                <span class="radio-custom"></span>
+                Employer Deduction (Stop Order)
+              </label>
+              <label class="radio-option">
+                <input type="radio" name="payment_option" value="EFT">
+                <span class="radio-custom"></span>
+                EFT / Online Payment
+              </label>
+            </div>
+          </div>
+
+          <div class="banking-details">
+            <h3>Banking Details for Debit Orders:</h3>
+            <div class="bank-info">
+              <p><strong>Bank:</strong> AFRICAN BANK</p>
+              <p><strong>Account Number:</strong> 20162521116</p>
+              <p><strong>Account Name:</strong> NDASWU</p>
+              <p><strong>Account Type:</strong> Savings / Cheque</p>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="deduction_date">Preferred Deduction Date (if applicable)</label>
+            <input type="date" id="deduction_date" name="deduction_date">
+          </div>
+
+          <div class="consent-group">
+            <label class="checkbox-option">
+              <input type="checkbox" name="consent" required>
+              <span class="checkbox-custom"></span>
+              I hereby authorise NDASWU to deduct my membership fees and agree to be bound by the Constitution of the Union. I declare that the above information is true and correct.
+            </label>
+          </div>
+
+          <div class="form-group">
+            <label for="application_date">Date of Application *</label>
+            <input type="date" id="application_date" name="application_date" required>
+          </div>
+        </fieldset>
+
+        <div class="form-actions">
+          <button type="submit" class="btn-primary">Submit Application</button>
+          <button type="reset" class="btn-secondary">Clear Form</button>
+        </div>
+      </form>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2024 NDASWU. All rights reserved.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
