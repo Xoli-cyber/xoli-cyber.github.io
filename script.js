@@ -18,4 +18,15 @@ document.addEventListener("DOMContentLoaded", function () {
       eventForm.reset();
     });
   }
+
+  // Mobile menu toggle
+  const toggle = document.querySelector('.menu-toggle');
+  const nav = document.getElementById('primary-nav');
+  if (toggle && nav) {
+    toggle.addEventListener('click', function () {
+      const expanded = this.getAttribute('aria-expanded') === 'true';
+      this.setAttribute('aria-expanded', String(!expanded));
+      nav.classList.toggle('show'); // .show should be handled in CSS to display the menu on mobile
+    });
+  }
 });
