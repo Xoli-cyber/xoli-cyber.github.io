@@ -46,13 +46,26 @@ html, body {
   font-family: Arial, Helvetica, sans-serif;
 }
 
-/* Background image (full site) */
+/* Full-page background image with crimson fade */
 html {
   background: url("images/untitled.png") no-repeat center center fixed;
   background-size: cover;
+  position: relative;
 }
 
-/* Header (overrides/merges with existing header rules) */
+html::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(220, 20, 60, 0.6); /* crimson overlay with transparency */
+  backdrop-filter: brightness(0.85); /* soft fade effect for text clarity */
+  z-index: -1;
+}
+
+/* Header */
 header {
   background: rgba(255, 255, 255, 0.85);
   display: flex;
@@ -62,14 +75,11 @@ header {
   box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
 
-/* ensure logo image uses .logo img or header img.logo if present */
-header img.logo,
-.logo img {
+header img.logo {
   height: 60px;
   width: auto;
 }
 
-/* Nav basic styles (will coexist with existing nav rules) */
 nav ul {
   list-style: none;
   margin: 0;
@@ -92,33 +102,15 @@ nav ul li a:hover {
   text-decoration: underline;
 }
 
-/* Hero section with faded overlay */
+/* Hero section */
 .hero {
-  position: relative;
   text-align: center;
   padding: 80px 20px;
   color: black;
   max-width: 1000px;
   margin: 40px auto;
+  background: rgba(255, 255, 255, 0.7); /* white transparent box for clarity */
   border-radius: 10px;
-  overflow: hidden;
-}
-
-.hero::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(255, 255, 255, 0.75); /* white transparent overlay */
-  backdrop-filter: brightness(0.9);
-  z-index: 0;
-}
-
-.hero h1, .hero p, .hero a, .hero button {
-  position: relative;
-  z-index: 1; /* Keep text above overlay */
 }
 
 /* Buttons */
