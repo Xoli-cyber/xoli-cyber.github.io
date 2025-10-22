@@ -74,8 +74,10 @@ header {
   align-items: center;
   max-width: 1200px;
   margin: 0 auto;
+  position: relative;
 }
 
+/* Logo styling (keeps earlier additions) */
 .logo {
   display: flex;
   align-items: center;
@@ -95,13 +97,17 @@ header {
   font-weight: bold;
 }
 
-nav ul {
+/* Nav selectors cover both nav ul and direct .navbar > ul usage */
+nav ul,
+.navbar > ul {
   list-style: none;
   display: flex;
   gap: var(--spacing-md);
+  align-items: center;
 }
 
-nav ul li a {
+nav ul li a,
+.navbar > ul li a {
   text-decoration: none;
   color: var(--text-color);
   font-weight: 600;
@@ -112,17 +118,21 @@ nav ul li a {
 }
 
 nav ul li a:hover,
-nav ul li a:focus {
+nav ul li a:focus,
+.navbar > ul li a:hover,
+.navbar > ul li a:focus {
   color: var(--primary-color);
   background-color: rgba(220, 20, 60, 0.1);
   outline: none;
 }
 
-nav ul li a.active {
+nav ul li a.active,
+.navbar > ul li a.active {
   color: var(--primary-color);
 }
 
-nav ul li a.active::after {
+nav ul li a.active::after,
+.navbar > ul li a.active::after {
   content: '';
   position: absolute;
   bottom: -2px;
@@ -130,6 +140,25 @@ nav ul li a.active::after {
   right: var(--spacing-sm);
   height: 2px;
   background: var(--primary-color);
+}
+
+/* Mobile hamburger toggle (hidden on desktop) */
+.menu-toggle {
+  display: none;
+  background: transparent;
+  border: none;
+  font-size: 1.6rem;
+  cursor: pointer;
+  color: var(--text-color);
+  padding: 6px 8px;
+  border-radius: var(--border-radius-sm);
+  transition: var(--transition);
+}
+
+/* show state for mobile menu */
+.navbar ul.show,
+nav ul.show {
+  display: flex; /* display controlled on mobile media query */
 }
 
 /* ===== MAIN CONTENT ===== */
@@ -384,14 +413,36 @@ footer {
 /* ===== RESPONSIVE DESIGN ===== */
 @media (max-width: 768px) {
   .navbar {
-    flex-direction: column;
+    flex-direction: row;
     gap: var(--spacing-md);
   }
 
-  nav ul {
-    flex-wrap: wrap;
-    justify-content: center;
+  /* hide regular horizontal menu on small screens */
+  nav ul,
+  .navbar > ul {
+    display: none;
+  }
+
+  /* show menu-toggle button */
+  .menu-toggle {
+    display: block;
+  }
+
+  /* when menu is toggled, show vertically */
+  nav ul.show,
+  .navbar > ul.show {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: var(--header-footer-bg);
+    padding: var(--spacing-md);
     gap: var(--spacing-sm);
+    box-shadow: var(--shadow);
+    border-top: 4px solid var(--primary-color);
+    z-index: 1100;
   }
 
   .form-grid {
@@ -434,7 +485,9 @@ footer {
     font-size: 1.5rem;
   }
 
-  nav ul {
+  /* fallback: ensure nav column layout on very small screens */
+  nav ul,
+  .navbar > ul {
     flex-direction: column;
     text-align: center;
     gap: var(--spacing-xs);
