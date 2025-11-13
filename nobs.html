@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NDASWU - National Office Bearers</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <div class="logo">
+      <img src="images/untitled.png" alt="NDASWU Logo">
+      <h1>NDASWU</h1>
+    </div>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="membership.html">Membership</a></li>
+        <li><a href="events.html">Events</a></li>
+        <li><a href="news.html">News</a></li>
+        <li><a href="resources.html">Resources</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Main Content -->
+  <section class="content-section">
+    <h2>National Office Bearers (NOBs)</h2>
+
+    <div class="nob-gallery">
+      <div class="nob-item" onclick="openProfile('zama')">
+        <img src="images/zama.jpg" alt="Cde Zama Mnyabiso">
+        <p>Cde Zama Mnyabiso</p>
+        <span>Deputy General Secretary</span>
+      </div>
+
+      <div class="nob-item" onclick="openProfile('zolani')">
+        <img src="images/zolani.jpg" alt="Cde Zolani M Masoleng">
+        <p>Cde Zolani M Masoleng</p>
+        <span>General Secretary</span>
+      </div>
+
+      <div class="nob-item" onclick="openProfile('gugulethu')">
+        <img src="images/gugulethu.jpg" alt="Cde Gugulethu Mthombeni">
+        <p>Cde Gugulethu Mthombeni</p>
+        <span>Deputy President</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Profile Modals -->
+  <div id="zama" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeProfile('zama')">&times;</span>
+      <h3>Cde Zama Mnyabiso - Deputy General Secretary</h3>
+      <p>
+        Cde Zama Mnyabiso, a young activist born in the 90s at Chris Hani Baragwanath Hospital in Johannesburg,
+        relocated to East London in the Eastern Cape. He began his activism within the African National Congress
+        at the Malcomas Magabela Branch, Ward 32 (East London), and joined the South African Students Congress
+        at Border Technikon (Walter Sisulu University).
+      </p>
+      <p>
+        Upon employment, he joined NEHAWU and served as a shop steward for the Buffalo City Metro Health District.
+        His leadership led to his election as branch secretary of East London Clinics and later as part of the Regional
+        Executive Committee of Yure Mdyogolo Region (NEHAWU).
+      </p>
+      <p>
+        In 2023, he was elected Chairperson of COSATU Young Workers, East London Local, and served as a PEC member (2023–2025).
+        He is currently the Regional Deputy Secretary of Buffalo City Metro Municipality South African Youth Council and
+        Interim Deputy General Secretary of NDASWU.
+      </p>
+    </div>
+  </div>
+
+  <div id="zolani" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeProfile('zolani')">&times;</span>
+      <h3>Cde Zolani M Masoleng - General Secretary</h3>
+      <p>
+        Zolani Matthews Masoleng is a seasoned legal and technical professional with over 25 years of experience
+        spanning philosophy, labour law, conflict resolution, nuclear manufacturing, and metrology.
+        He is pursuing a Master of Laws in Labour Law at UNISA.
+      </p>
+      <p>
+        Professionally, he serves as Chief Technical Officer at NECSA, specialising in quality compliance in advanced
+        nuclear manufacturing. He has held leadership roles in SANDF, managing SANAS-accredited metrology labs.
+      </p>
+      <p>
+        In the labour movement, he has served as Regional Secretary of NEHAWU Tshwane, representing over 35,500 members.
+        Zolani also co-founded CRACOMI and held youth leadership positions in SASCO and community initiatives.
+        His expertise combines law, technology, and unionism for workplace justice and transformation.
+      </p>
+    </div>
+  </div>
+
+  <div id="gugulethu" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeProfile('gugulethu')">&times;</span>
+      <h3>Cde Gugulethu Mthombeni - Deputy President</h3>
+      <p>
+        Gugulethu Mthombeni, born in KwaZulu-Natal, works as an admin assistant at the Gauteng Department of Education.
+        She holds a diploma in Human Resources and certificates in leadership, diversity, ICT, accounting, and management.
+      </p>
+      <p>
+        She has long-standing experience in the trade union and political landscape — serving in ANC, SACP, and NEHAWU
+        structures, including roles as branch chairperson, COSATU Tembisa Local Deputy Chairperson, and NEHAWU Provincial Treasurer.
+      </p>
+      <p>
+        She has extensive negotiation experience at GDE, PSBF, and CCPGP and holds qualifications in Finance and Investment
+        from Wits University. Currently, she serves as Interim Deputy President of NDASWU, advocating for equity,
+        professionalism, and empowerment in the labour movement.
+      </p>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 NDASWU. All rights reserved.</p>
+  </footer>
+
+</body>
+</html>

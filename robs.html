@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NDASWU - Regional Office Bearers</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <div class="logo">
+      <img src="images/untitled.png" alt="NDASWU Logo">
+      <h1>NDASWU</h1>
+    </div>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="membership.html">Membership</a></li>
+        <li><a href="events.html">Events</a></li>
+        <li><a href="news.html">News</a></li>
+        <li><a href="resources.html">Resources</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Main Content -->
+  <section class="content-section">
+    <h2>Regional Office Bearers (ROBs)</h2>
+    <p style="text-align:center;">Our regional leaders ensure that NDASWU’s mission and values reach every corner of the country.</p>
+
+    <div class="nob-gallery">
+      <div class="nob-item" onclick="openProfile('rob1')">
+        <img src="images/rob1.jpg" alt="Regional Chairperson">
+        <p>Cde Sipho Dlamini</p>
+        <span>Regional Chairperson</span>
+      </div>
+
+      <div class="nob-item" onclick="openProfile('rob2')">
+        <img src="images/rob2.jpg" alt="Regional Secretary">
+        <p>Cde Lindiwe Ncube</p>
+        <span>Regional Secretary</span>
+      </div>
+
+      <div class="nob-item" onclick="openProfile('rob3')">
+        <img src="images/rob3.jpg" alt="Regional Treasurer">
+        <p>Cde Thabo Molefe</p>
+        <span>Regional Treasurer</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Modals -->
+  <div id="rob1" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeProfile('rob1')">&times;</span>
+      <h3>Cde Sipho Dlamini - Regional Chairperson</h3>
+      <p>
+        Cde Dlamini is a long-time labour activist from KwaZulu-Natal who has served as a shop steward and
+        organiser for over 15 years. His work focuses on strengthening member participation and ensuring fair
+        bargaining across key public and private sectors.
+      </p>
+    </div>
+  </div>
+
+  <div id="rob2" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeProfile('rob2')">&times;</span>
+      <h3>Cde Lindiwe Ncube - Regional Secretary</h3>
+      <p>
+        Cde Ncube brings administrative precision and advocacy experience from years of service within
+        education and healthcare sectors. She leads regional coordination, ensuring timely communication
+        and implementation of NDASWU policies.
+      </p>
+    </div>
+  </div>
+
+  <div id="rob3" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeProfile('rob3')">&times;</span>
+      <h3>Cde Thabo Molefe - Regional Treasurer</h3>
+      <p>
+        With a background in accounting and finance, Cde Molefe manages regional resources with transparency
+        and accountability, ensuring members’ contributions are utilised effectively for campaigns and welfare.
+      </p>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 NDASWU. All rights reserved.</p>
+  </footer>
+
+</body>
+</html>

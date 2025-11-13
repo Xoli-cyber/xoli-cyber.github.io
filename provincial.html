@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NDASWU - Provincial Coordinators</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <div class="logo">
+      <img src="images/untitled.png" alt="NDASWU Logo">
+      <h1>NDASWU</h1>
+    </div>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="membership.html">Membership</a></li>
+        <li><a href="events.html">Events</a></li>
+        <li><a href="news.html">News</a></li>
+        <li><a href="resources.html">Resources</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Main Content -->
+  <section class="content-section">
+    <h2>Provincial Coordinators</h2>
+    <p style="text-align:center;">Our provincial coordinators are the vital link between regions, members, and national leadership.</p>
+
+    <div class="nob-gallery">
+      <div class="nob-item" onclick="openProfile('ec')">
+        <img src="images/ec.jpg" alt="Eastern Cape Coordinator">
+        <p>Cde Ayanda Mkhize</p>
+        <span>Eastern Cape</span>
+      </div>
+
+      <div class="nob-item" onclick="openProfile('gp')">
+        <img src="images/gp.jpg" alt="Gauteng Coordinator">
+        <p>Cde Lerato Khumalo</p>
+        <span>Gauteng</span>
+      </div>
+
+      <div class="nob-item" onclick="openProfile('kzn')">
+        <img src="images/kzn.jpg" alt="KwaZulu-Natal Coordinator">
+        <p>Cde Bongani Zulu</p>
+        <span>KwaZulu-Natal</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Modals -->
+  <div id="ec" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeProfile('ec')">&times;</span>
+      <h3>Cde Ayanda Mkhize - Eastern Cape Coordinator</h3>
+      <p>
+        Cde Mkhize coordinates all union activities across the Eastern Cape, focusing on rural worker inclusion,
+        collective bargaining, and youth engagement in the workplace.
+      </p>
+    </div>
+  </div>
+
+  <div id="gp" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeProfile('gp')">&times;</span>
+      <h3>Cde Lerato Khumalo - Gauteng Coordinator</h3>
+      <p>
+        Cde Khumalo oversees urban union networks, education programs, and shop steward development in Gauteng.
+        She advocates for women’s representation and digital inclusion in the workforce.
+      </p>
+    </div>
+  </div>
+
+  <div id="kzn" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeProfile('kzn')">&times;</span>
+      <h3>Cde Bongani Zulu - KwaZulu-Natal Coordinator</h3>
+      <p>
+        Cde Zulu has deep roots in community organising and worker mobilisation. He works to strengthen
+        inter-union solidarity and ensure fair treatment across industries in KZN.
+      </p>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 NDASWU. All rights reserved.</p>
+  </footer>
+
+</body>
+</html>

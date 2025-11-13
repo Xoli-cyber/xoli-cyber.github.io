@@ -30,3 +30,27 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 });
+
+// ==========================
+// Modal Control Functions
+// ==========================
+
+function openProfile(id) {
+  const el = document.getElementById(id);
+  if (el) el.style.display = 'block';
+}
+
+function closeProfile(id) {
+  const el = document.getElementById(id);
+  if (el) el.style.display = 'none';
+}
+
+// Close modal when clicking outside
+window.onclick = function(event) {
+  const modals = document.querySelectorAll('.modal');
+  modals.forEach(modal => {
+    if (event.target === modal) {
+      modal.style.display = 'none';
+    }
+  });
+};
